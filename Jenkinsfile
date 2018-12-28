@@ -14,6 +14,8 @@ pipeline {
         stage("Run Tests") {
             steps {
                 sh "bundle exec cucumber -p ci -t @temp"
+                cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: 'log', sortingMethod: 'ALPHABETICAL'
+
             }
         }
     }
